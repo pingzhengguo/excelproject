@@ -12,6 +12,7 @@
     <artifactId>one</artifactId>
 
     <dependencies>
+
         <!--mybatis-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>

@@ -1,8 +1,10 @@
 package com.pzg.code.one.controller;
 
+import com.pzg.code.commons.excel.ExcelToData;
 import com.pzg.code.commons.excel.FileUtil;
 import com.pzg.code.commons.utils.ResultInfo;
 import com.pzg.code.one.entity.Dept;
+import com.pzg.code.one.mapper.DeptMapper;
 import com.pzg.code.one.service.DeptService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,12 +30,21 @@ public class DeptController {
     @Autowired
     private DeptService deptService;
 
+    @Autowired
+    private DeptMapper deptMapper;
 
-    @ApiOperation(value = "getAll", produces = MediaType.APPLICATION_JSON_VALUE)
-    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    @ApiOperation(value = "excel2Data", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/excel2Data", method = RequestMethod.GET)
     @ResponseBody
-    public Object getAll() {
-        return deptService.getAll();
+    public Object excel2Data() {
+        try {
+            Dept dept = new Dept();
+            List<Dept> objects = ExcelToData.excel2Data(dept);
+            deptMapper.saveList(objects);
+            return null;
+        } catch (Exception e) {
+            return ResultInfo.failure("导入Excel失败，请联系网站管理员！");
+        }
     }
 
 

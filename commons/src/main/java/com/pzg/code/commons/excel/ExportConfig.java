@@ -49,4 +49,6 @@ public @interface ExportConfig {
 	 * @return 默认true
 	 */
 	String replace() default "";
+
+	String columnName() default "";
 }

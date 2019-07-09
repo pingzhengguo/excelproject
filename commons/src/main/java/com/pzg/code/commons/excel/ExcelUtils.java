@@ -153,7 +153,7 @@ public class ExcelUtils {
                         .setDisplay("field".equals(currentExportConfig.value()) ? field.getName()
                                 : currentExportConfig.value())
                         .setWidth(currentExportConfig.width()).setConvert(currentExportConfig.convert())
-                        .setColor(currentExportConfig.color()).setReplace(currentExportConfig.replace());
+                        .setColor(currentExportConfig.color()).setReplace(currentExportConfig.replace()).setColumnName(currentExportConfig.columnName());
                 exportItems.add(currentExportItem);
             }
 
@@ -203,6 +203,7 @@ public class ExcelUtils {
                         if ("".equals(cellValue)) {
                             try {
                                 cellValue = BeanUtils.getProperty(data.get(i), exportItems.get(j).getField());
+                                BeanUtils.setProperty(data.get(i), exportItems.get(j).getField(),"");
                             } catch (Exception e) {
                                 log.error(e.getMessage());
                             }

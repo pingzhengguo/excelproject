@@ -14,144 +14,144 @@ import java.util.Date;
 @Table(name = "t_dept")
 public class Dept implements Serializable {
 
-	private static final long serialVersionUID = -7790334862410409053L;
+    private static final long serialVersionUID = -7790334862410409053L;
 
-	@Id
-	@GeneratedValue(generator = "JDBC")
-	@Column(name = "dept_id")
-	@ExportConfig(value = "编号")
-	private Long deptId;
+    @Id
+    @GeneratedValue(generator = "JDBC")
+    @Column(name = "dept_id")
+    @ExportConfig(value = "编号", columnName = "dept_id")
+    private Long deptId;
 
-	@Column(name = "parent_id")
-	private Long parentId;
+    @Column(name = "parent_id")
+    private Long parentId;
 
-	@Column(name = "dept_name")
-	@ExportConfig(value = "部门名称")
-	private String deptName;
+    @Column(name = "dept_name")
+    @ExportConfig(value = "部门名称", columnName = "dept_name")
+    private String deptName;
 
-	@Column(name = "dept_name_short")
-	@ExportConfig(value = "部门名称简称")
-	private String deptNameShort;
+    @Column(name = "dept_name_short")
+    @ExportConfig(value = "部门名称简称", columnName = "dept_name_short")
+    private String deptNameShort;
 
-	@Column(name = "order_num")
-	private Long orderNum;
+    @Column(name = "order_num")
+    private Long orderNum;
 
-	@Column(name = "create_time")
-	@ExportConfig(value = "创建时间", convert = "c:com.pzg.code.commons.excel.TimeConvert")
-	@JsonSerialize(using = CustomDateSerializer.class)
-	private Date createTime;
+    @Column(name = "create_time")
+    @ExportConfig(value = "创建时间", convert = "c:com.pzg.code.commons.excel.TimeConvert", columnName = "create_time")
+    @JsonSerialize(using = CustomDateSerializer.class)
+    private Date createTime;
 
-	@Column(name = "leader")
-	@ExportConfig(value = "部门负责人")
-	private String leader;
+    @Column(name = "leader")
+    @ExportConfig(value = "部门负责人", columnName = "leader")
+    private String leader;
 
-	@Column(name = "property")
-	@ExportConfig(value = "属性")
-	private String property;
+    @Column(name = "property")
+    @ExportConfig(value = "属性", columnName = "property")
+    private String property;
 
-	@Column(name = "remarks")
-	@ExportConfig(value = "备注")
-	private String remarks;
+    @Column(name = "remarks")
+    @ExportConfig(value = "备注", columnName = "remarks")
+    private String remarks;
 
-	/**
-	 * @return DEPT_ID
-	 */
-	public Long getDeptId() {
-		return deptId;
-	}
+    /**
+     * @return DEPT_ID
+     */
+    public Long getDeptId() {
+        return deptId;
+    }
 
-	/**
-	 * @param deptId
-	 */
-	public void setDeptId(Long deptId) {
-		this.deptId = deptId;
-	}
+    /**
+     * @param deptId
+     */
+    public void setDeptId(Long deptId) {
+        this.deptId = deptId;
+    }
 
-	/**
-	 * @return PARENT_ID
-	 */
-	public Long getParentId() {
-		return parentId;
-	}
+    /**
+     * @return PARENT_ID
+     */
+    public Long getParentId() {
+        return parentId;
+    }
 
-	/**
-	 * @param parentId
-	 */
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
+    /**
+     * @param parentId
+     */
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
 
-	/**
-	 * @return DEPT_NAME
-	 */
-	public String getDeptName() {
-		return deptName;
-	}
+    /**
+     * @return DEPT_NAME
+     */
+    public String getDeptName() {
+        return deptName;
+    }
 
-	/**
-	 * @param deptName
-	 */
-	public void setDeptName(String deptName) {
-		this.deptName = deptName == null ? null : deptName.trim();
-	}
+    /**
+     * @param deptName
+     */
+    public void setDeptName(String deptName) {
+        this.deptName = deptName == null ? null : deptName.trim();
+    }
 
-	/**
-	 * @return ORDER_NUM
-	 */
-	public Long getOrderNum() {
-		return orderNum;
-	}
+    /**
+     * @return ORDER_NUM
+     */
+    public Long getOrderNum() {
+        return orderNum;
+    }
 
-	/**
-	 * @param orderNum
-	 */
-	public void setOrderNum(Long orderNum) {
-		this.orderNum = orderNum;
-	}
+    /**
+     * @param orderNum
+     */
+    public void setOrderNum(Long orderNum) {
+        this.orderNum = orderNum;
+    }
 
-	/**
-	 * @return CREATE_TIME
-	 */
-	public Date getCreateTime() {
-		return createTime;
-	}
+    /**
+     * @return CREATE_TIME
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
 
-	/**
-	 * @param createTime
-	 */
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    /**
+     * @param createTime
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
-	public String getDeptNameShort() {
-		return deptNameShort;
-	}
+    public String getDeptNameShort() {
+        return deptNameShort;
+    }
 
-	public void setDeptNameShort(String deptNameShort) {
-		this.deptNameShort = deptNameShort;
-	}
+    public void setDeptNameShort(String deptNameShort) {
+        this.deptNameShort = deptNameShort;
+    }
 
-	public String getLeader() {
-		return leader;
-	}
+    public String getLeader() {
+        return leader;
+    }
 
-	public void setLeader(String leader) {
-		this.leader = leader;
-	}
+    public void setLeader(String leader) {
+        this.leader = leader;
+    }
 
-	public String getProperty() {
-		return property;
-	}
+    public String getProperty() {
+        return property;
+    }
 
-	public void setProperty(String property) {
-		this.property = property;
-	}
+    public void setProperty(String property) {
+        this.property = property;
+    }
 
-	public String getRemarks() {
-		return remarks;
-	}
+    public String getRemarks() {
+        return remarks;
+    }
 
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
-	}
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
 }

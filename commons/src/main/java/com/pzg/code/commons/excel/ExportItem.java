@@ -1,65 +1,84 @@
 package com.pzg.code.commons.excel;
 
 public class ExportItem {
+    private String columnName;//表格中的字段名称
+    private String field; // 属性名
+    private String display; // 显示名
+    private short width; // 宽度
+    private String convert;
+    private short color;
+    private String replace;
+    private String columnType;
 
-	private String field; // 属性名
-	private String display; // 显示名
-	private short width; // 宽度
-	private String convert;
-	private short color;
-	private String replace;
+    public String getColumnName() {
+        return columnName;
+    }
 
-	public String getField() {
-		return field;
-	}
+    public ExportItem setColumnName(String columnName) {
+        this.columnName = columnName;
+        return this;
+    }
 
-	public ExportItem setField(String field) {
-		this.field = field;
-		return this;
-	}
+    public String getField() {
+        return field;
+    }
 
-	public String getDisplay() {
-		return display;
-	}
+    public ExportItem setField(String field) {
+        this.field = field;
+        return this;
+    }
 
-	public ExportItem setDisplay(String display) {
-		this.display = display;
-		return this;
-	}
+    public String getDisplay() {
+        return display;
+    }
 
-	public short getWidth() {
-		return width;
-	}
+    public ExportItem setDisplay(String display) {
+        this.display = display;
+        return this;
+    }
 
-	public ExportItem setWidth(short width) {
-		this.width = width;
-		return this;
-	}
+    public short getWidth() {
+        return width;
+    }
 
-	public String getConvert() {
-		return convert;
-	}
+    public ExportItem setWidth(short width) {
+        this.width = width;
+        return this;
+    }
 
-	public ExportItem setConvert(String convert) {
-		this.convert = convert;
-		return this;
-	}
+    public String getConvert() {
+        return convert;
+    }
 
-	public short getColor() {
-		return color;
-	}
+    public ExportItem setConvert(String convert) {
+        this.convert = convert;
+        return this;
+    }
 
-	public ExportItem setColor(short color) {
-		this.color = color;
-		return this;
-	}
+    public short getColor() {
+        return color;
+    }
 
-	public String getReplace() {
-		return replace;
-	}
+    public ExportItem setColor(short color) {
+        this.color = color;
+        return this;
+    }
 
-	public ExportItem setReplace(String replace) {
-		this.replace = replace;
-		return this;
-	}
+    public String getReplace() {
+        return replace;
+    }
+
+    public ExportItem setReplace(String replace) {
+        this.replace = replace;
+        return this;
+    }
+
+    public String getColumnType() {
+        return columnType;
+    }
+
+    public ExportItem setColumnType(String columnType) {
+        this.columnType = columnType;
+        return this;
+    }
 }
