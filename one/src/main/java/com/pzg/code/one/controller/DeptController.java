@@ -38,8 +38,7 @@ public class DeptController {
     @ResponseBody
     public Object excel2Data() {
         try {
-            Dept dept = new Dept();
-            List<Dept> objects = ExcelToData.excel2Data(dept);
+            List<Dept> objects = ExcelToData.excel2Data(Dept.class);
             deptMapper.saveList(objects);
             return null;
         } catch (Exception e) {

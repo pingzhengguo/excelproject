@@ -25,12 +25,12 @@ import java.util.stream.Collectors;
  */
 public class ExcelToData {
 
-    public static <T> List<T> excel2Data(T t) {
+    public static <T> List<T> excel2Data(Class<T> clazz) {
         // 导出列查询。
         ExportConfig currentExportConfig;
         ExportItem currentExportItem;
         List<ExportItem> exportItems = new ArrayList<>();
-        for (Field field : t.getClass().getDeclaredFields()) {
+        for (Field field : clazz.getDeclaredFields()) {
             currentExportConfig = field.getAnnotation(ExportConfig.class);
             if (currentExportConfig != null) {
                 currentExportItem = new ExportItem().setField(field.getName())
@@ -66,7 +66,7 @@ public class ExcelToData {
                 Row title = sheet.getRow(firstRowIndex - 1);
                 List<T> list = new ArrayList<>();
                 for (int rIndex = firstRowIndex; rIndex <= lastRowIndex; rIndex++) {   //遍历行
-                    T t1 = (T) t.getClass().newInstance();
+                    T t = (T) clazz.newInstance();
                     Row row = sheet.getRow(rIndex);
                     if (row != null) {
                         int firstCellIndex = title.getFirstCellNum();
@@ -85,12 +85,12 @@ public class ExcelToData {
                                         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                                         object = format.parse(s1);
                                     }
-                                    BeanUtils.setProperty(t1, field, object);
+                                    BeanUtils.setProperty(t, field, object);
                                 }
                             }
                         }
                     }
-                    list.add(t1);
+                    list.add(t);
                 }
                 return list;
             } else {
